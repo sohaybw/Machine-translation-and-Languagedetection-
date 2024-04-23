@@ -1,0 +1,26 @@
+
+
+# version: "3.8"
+
+# services:
+#   api:
+#     image: ${HUB_URL}/${APP_NAME_BACKEND}:${APP_VERSION}
+#     ports:
+#       - ${BACKEND_PORT:-8080}:8080
+#     env_file:
+#       - .env
+
+version: "3.8"
+
+services:
+  api:
+    image: ${HUB_URL}/${APP_NAME_BACKEND}:${APP_VERSION}
+    ports:
+      - ${BACKEND_PORT:-8080}:8080
+    env_file:
+      - .env
+    volumes:
+      - uploaded_files_volume:/app/src/static/uploaded_files
+
+volumes:
+  uploaded_files_volume:
